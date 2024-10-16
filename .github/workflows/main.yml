@@ -21,7 +21,7 @@ jobs:
         steps: 
             - name: Noop
               run: |
-                  echo "Skipping CI run for automated PRs.
+                  echo "Skipping CI run for automated PRs."
             - name: Checkout
               uses: actions/checkout@v3
               with:
