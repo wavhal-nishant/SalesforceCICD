@@ -18,7 +18,21 @@ jobs:
     # Dummy job used to skip CI run on automated PRs  my-job:
       my-job:
         runs-on: ubuntu-latest
-        steps:
+        steps: 
             - name: Noop
               run: |
-                  echo "Skipping CI run for automated PRs."
+                  echo "Skipping CI run for automated PRs.
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 2
+            - name: Get changed files
+              id: changed-files
+              run: |
+                echo "changed_files=$(git diff --name-only -r HEAD^1 HEAD | xargs)" >> $GITHUB_OUTPUT
+            
+            - name: List changed files
+              run: |
+                  for file in ${{ steps.changed-files.outputs.changed_files }}; do
+                      echo "$file was changed"
+                  done
