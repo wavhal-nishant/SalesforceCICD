@@ -1,0 +1,24 @@
+# Unique name for this workflow
+name: Hello World
+
+# Definition when the workflow should run
+on:
+    workflow_dispatch:
+        inputs:
+            prerelease:
+                description: 'Run on a prerelease org?'
+                required: false
+                type: boolean
+    pull_request:
+        types: [opened, edited, synchronize, reopened]
+
+
+# Jobs to be executed
+jobs:
+    # Dummy job used to skip CI run on automated PRs  my-job:
+      my-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Noop
+              run: |
+                  echo "Skipping CI run for automated PRs."
