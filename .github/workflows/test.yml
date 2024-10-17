@@ -62,5 +62,6 @@ jobs:
               shell: bash
               run: |
                   echo ${{ secrets.SFDX_SECRET}}
+                  echo ${{ env.SFDX_URL}}
                     
            
