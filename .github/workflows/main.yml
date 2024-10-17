@@ -58,12 +58,12 @@ jobs:
                   nodeInstallPath=$(npm config get prefix)
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
-            
+                  
+            # echo ${{ vars.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt      
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
               shell: bash
               run: |
-                  sf org display --target-org my-org --verbose --json > authFile.json
-                  echo ${{ vars.DEVHUB_SFDX_DEVELOP_URL }} > ./DEVHUB_SFDX_URL.txt
+                  echo ${{ secrets.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt                 
                   secretFileSize=$(wc -c "SalesforceCICD/DEVHUB_SFDX_URL.txt" | awk '{print $1}')
                   if [ $secretFileSize == 1 ]; then
                       echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
@@ -71,7 +71,7 @@ jobs:
                   fi
 
             - name: 'Authenticate Dev Hub'
-              run: sf org login sfdx-url --sfdx-url-file SalesforceCICD/DEVHUB_SFDX_URL.txt SalesforceCICD/authFile.json
+              run: sf org login sfdx-url --sfdx-url-file SalesforceCICD/authFile.json
 
             - name: 'Run Apex tests'
               run: sf apex test run -c -r human 
