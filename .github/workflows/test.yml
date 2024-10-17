@@ -11,10 +11,7 @@ on:
                 type: boolean
     pull_request:
          types: [opened, edited, synchronize, reopened]
-         branches:
-            - master
-         paths:
-            - 'force-app/**'
+
 # Jobs to be executed
 jobs:
     # Dummy job used to skip CI run on automated PRs  my-job:
