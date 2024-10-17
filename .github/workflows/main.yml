@@ -23,19 +23,6 @@ jobs:
               id: changed-files
               run: |
                  echo "changed_files=$(git diff --name-only -r HEAD^1 HEAD | xargs)" >> $GITHUB_OUTPUT
-                 changed_filesformat=$(git diff --name-only -r HEAD^1 HEAD | xargs)
-                 declare -a fileSet 
-                 declare -a fileSetApex 
-                 for file in ${{changed_filesformat }}
-                    do  
-                        fileSetApex=[`basename ${file%.*}`];
-                        if [[ $file = *test || $file = *Test ]]
-                            then 
-                                fileSet=["basename${file}"];
-                        fi
-                    done
-                    echo "$fileSet"
-                    echo "$fileSetApex"
             
             - name: List changed files
               run: |
