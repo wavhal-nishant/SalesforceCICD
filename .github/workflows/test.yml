@@ -14,9 +14,7 @@ on:
          branches:
             - master
          paths:
-            - 'force-app/**'
-
-
+            - 'force-app/**
 # Jobs to be executed
 jobs:
     # Dummy job used to skip CI run on automated PRs  my-job:
@@ -46,19 +44,5 @@ jobs:
                                 echo "$file was changed";
                         fi
                     done
-      org-test:
-        runs-on: trailheadapps-Ubuntu  
-        steps:   
-            - name: Install Salesforce CLI
-              run: |
-                      npm install @salesforce/cli --location=global
-                      nodeInstallPath=$(npm config get prefix)
-                      echo "$nodeInstallPath/bin" >> $GITHUB_PATH
-                      sf --version
-    
-            - name: Populate auth file with DEVHUB_SFDX_URL secret
-              shell: bash
-              run: |
-                      echo ${{ secrets.SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                     
-                  
+                    
+           
