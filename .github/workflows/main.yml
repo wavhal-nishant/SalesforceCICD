@@ -62,6 +62,7 @@ jobs:
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
               shell: bash
               run: |
+                  sf org display --target-org my-org --verbose --json > authFile.json
                   echo ${{ vars.DEVHUB_SFDX_DEVELOP_URL }} > ./DEVHUB_SFDX_URL.txt
                   secretFileSize=$(wc -c "SalesforceCICD/DEVHUB_SFDX_URL.txt" | awk '{print $1}')
                   if [ $secretFileSize == 1 ]; then
