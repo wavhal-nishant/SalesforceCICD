@@ -34,6 +34,8 @@ jobs:
             - name: List changed files
               run: |
                   for file in ${{ steps.changed-files.outputs.changed_files }}; do
-                       echo "$file was changed"
+                       if [[ $file = *test || $file = *Test ]]
+                         fileSet["$file"]
+                         echo "$file was changed"
                   done
                   echo "$fileSet was changed"
