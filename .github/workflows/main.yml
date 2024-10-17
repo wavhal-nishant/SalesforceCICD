@@ -70,7 +70,7 @@ jobs:
                   fi
 
             - name: 'Authenticate Dev Hub'
-              run: sf org login sfdx-url --sfdx-url-file "SalesforceCICD/DEVHUB_SFDX_URL.txt SalesforceCICD/authFile.json"
+              run: sf org login sfdx-url --sfdx-url-file SalesforceCICD/DEVHUB_SFDX_URL.txt SalesforceCICD/authFile.json
 
             - name: 'Run Apex tests'
               run: sf apex test run -c -r human 
