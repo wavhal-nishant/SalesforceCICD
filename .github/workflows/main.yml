@@ -1,5 +1,5 @@
 # Unique name for this workflow
-name: Hello World
+name: Pull Request Workflow
 
 # Definition when the workflow should run
 on:
