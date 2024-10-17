@@ -49,22 +49,16 @@ jobs:
       org-test:
         runs-on: trailheadapps-Ubuntu  
         steps:   
-            # Install Salesforce CLI
-            - name: 'Install Salesforce CLI'
+            - name: Install Salesforce CLI
               run: |
                       npm install @salesforce/cli --location=global
                       nodeInstallPath=$(npm config get prefix)
                       echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                       sf --version
     
-             # Store secret for dev hub
-            - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+            - name: Populate auth file with DEVHUB_SFDX_URL secret
               shell: bash
-              run: |
-                      echo ${{ secrets.SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                      secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
-                      if [ $secretFileSize == 1 ]; then
-                          echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
-                          exit 1;
-                      fi
+              run: | 
+                     echo ${{ env.SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
+                      
                   
