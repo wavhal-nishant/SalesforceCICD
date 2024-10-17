@@ -1,2 +1,0 @@
-# SalesforceCICD
-To demonstrate CICD
