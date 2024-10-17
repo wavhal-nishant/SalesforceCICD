@@ -42,4 +42,21 @@ jobs:
                         fi
                     done
                     
+            - name : 'Install Salesforce CLI'
+              run: |
+                  npm install @salesforce/cli --location=global
+                  nodeInstallPath=$(npm config get prefix)
+                  echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+                  sf --version
+            
+            - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+              shell: bash
+              run: |
+                  echo ${{ secrets.DEVHUB_SFDX_URL }} > ./DEVHUB_SFDX_URL.txt
+                  secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
+                  if [ $secretFileSize == 1 ]; then
+                      echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
+                      exit 1;
+                  fi
+                    
            
