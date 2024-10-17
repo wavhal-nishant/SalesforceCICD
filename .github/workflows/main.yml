@@ -38,4 +38,4 @@ jobs:
                          fileSet["$file"]
                          echo "$file was changed"
                   done
-                  echo "$fileSet was changed"
+                  
