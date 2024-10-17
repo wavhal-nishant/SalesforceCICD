@@ -37,7 +37,8 @@ jobs:
                     do
                         if [[ $file = *test || $file = *Test ]]
                             then 
-                                var fileSet=["$file"];
+                                #var fileSet=["$file"];
+                                var fileSet=["basename${file}"];
                                 echo "$file was changed";
                         fi
                     done
