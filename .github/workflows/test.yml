@@ -45,7 +45,7 @@ jobs:
                  declare -a fileSet    
                  for file in ${{ steps.changed-files.outputs.changed_files }}
                     do
-                                fileSet=[`basename $file%.`];
+                                fileSet=[`basename $file%.*`];
                                 echo "$file was changed";
                         
                     done
