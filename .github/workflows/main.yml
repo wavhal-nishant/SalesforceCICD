@@ -14,38 +14,42 @@ jobs:
         runs-on: ubuntu-latest
         environment: develop 
         steps: 
-            - name: Noop
-              run: |
-                  echo "Skipping CI run for automated PRs."
             - name: Checkout
               uses: actions/checkout@v4
               with:
                   fetch-depth: 2
+                  
             - name: Get changed files
               id: changed-files
               run: |
                 echo "changed_files=$(git diff --name-only -r HEAD^1 HEAD | xargs)" >> $GITHUB_OUTPUT
-            
-            - name: List changed files
-              run: |
-                 for file in ${{ steps.changed-files.outputs.changed_files }}
-                    do
+                 declare -a fileSet 
+                 declare -a fileSetApex 
+                 for file in ${{changed_files }}
+                    do  
+                        fileSetApex=[`basename ${file%.*}`];
                         if [[ $file = *test || $file = *Test ]]
                             then 
                                 fileSet=["basename${file}"];
-                                echo "$file was changed";
                         fi
                     done
                     echo "$fileSet"
-                    
-                 declare -a fileSet    
+                    echo "$fileSetApex"
+            
+            - name: List changed files
+              run: |
+                 declare -a fileSet 
+                 declare -a fileSetApex 
                  for file in ${{ steps.changed-files.outputs.changed_files }}
-                    do
-                                fileSet=[`basename ${file%.*}`];
-                                echo "$file was changed";
-                        
+                    do  
+                        fileSetApex=[`basename ${file%.*}`];
+                        if [[ $file = *test || $file = *Test ]]
+                            then 
+                                fileSet=["basename${file}"];
+                        fi
                     done
-                 echo "$fileSet"
+                    echo "$fileSet"
+                    echo "$fileSetApex"
                     
             - name : 'Install Salesforce CLI'
               run: |
@@ -53,9 +57,8 @@ jobs:
                   nodeInstallPath=$(npm config get prefix)
                   echo "$nodeInstallPath/bin" >> $GITHUB_PATH
                   sf --version
-                  
-            # echo ${{ vars.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt      
-            - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+                       
+            - name: 'Get Authorization Details'
               shell: bash
               run: |
                   echo ${{ secrets.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt                 
@@ -69,6 +72,6 @@ jobs:
               run: sf org login sfdx-url -f ./DEVHUB_SFDX_URL.txt -a devhub -d
 
             - name: 'Run Apex tests'
-              run: sf apex test run -c -r human 
+              run: sf apex test run -c -r human -d ./tests/apex -w 20 
                     
            
