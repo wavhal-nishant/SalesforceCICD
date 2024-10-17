@@ -58,7 +58,7 @@ jobs:
     
             - name: Populate auth file with DEVHUB_SFDX_URL secret
               shell: bash
-              run: | 
-                     echo ${{ env.SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
-                      
+              run: |
+                      echo ${{ secrets.SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
+                     
                   
