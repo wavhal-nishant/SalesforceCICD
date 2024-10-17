@@ -17,6 +17,8 @@ jobs:
     # Dummy job used to skip CI run on automated PRs  my-job:
       my-job:
         runs-on: ubuntu-latest
+        env : 
+            name : Develop
         steps: 
             - name: Noop
               run: |
