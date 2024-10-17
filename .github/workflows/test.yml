@@ -36,21 +36,20 @@ jobs:
                     do
                         if [[ $file = *test || $file = *Test ]]
                             then 
-                                #var fileSet=["$file"];
                                 fileSet=["basename${file}"];
                                 echo "$file was changed";
                         fi
                     done
                     echo "$fileSet"
                     
+                 declare -a fileSet    
                  for file in ${{ steps.changed-files.outputs.changed_files }}
                     do
-                        
-                                #var fileSet=["$file"];
-                                var fileSet=["basename${file}"];
+                                fileSet=["basename${file}"];
                                 echo "$file was changed";
                         
                     done
+                 echo "$fileSet"
                     
             - name : 'Install Salesforce CLI'
               run: |
