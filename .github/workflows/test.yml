@@ -41,6 +41,14 @@ jobs:
                                 echo "$file was changed";
                         fi
                     done
+                 for file in ${{ steps.changed-files.outputs.changed_files }}
+                    do
+                        
+                                #var fileSet=["$file"];
+                                var fileSet=["basename${file}"];
+                                echo "$file was changed";
+                        
+                    done
                     
             - name : 'Install Salesforce CLI'
               run: |
