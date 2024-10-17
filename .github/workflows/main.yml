@@ -34,7 +34,6 @@ jobs:
             - name: List changed files
               run: |
                   for file in ${{ steps.changed-files.outputs.changed_files }}; do
-                      var mySet = new Set();
-                      mySet.add($file);
-                      echo "$mySet was changed"
+                       fileSet: !!set? one
+                       echo "$fileSet was changed"
                   done
