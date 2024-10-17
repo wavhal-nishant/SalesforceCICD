@@ -61,7 +61,17 @@ jobs:
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
               shell: bash
               run: |
-                  echo  "$GITHUB_CONTEXT"
-                  echo "$github.event.repository"
+                  echo ${{ secrets.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt
+                  secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
+                  if [ $secretFileSize == 1 ]; then
+                      echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
+                      exit 1;
+                  fi
+
+            - name: 'Authenticate Dev Hub'
+              run: sf org login sfdx-url -f ./DEVHUB_SFDX_URL.txt -a devhub -d
+
+            - name: 'Run Apex tests'
+              run: sf apex test run -c -r human 
                     
            
