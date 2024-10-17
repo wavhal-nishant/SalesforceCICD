@@ -46,7 +46,9 @@ jobs:
                                 echo "$file was changed";
                         fi
                     done
-                    
+      org-test:
+        runs-on: trailheadapps-Ubuntu  
+        steps:   
             # Install Salesforce CLI
             - name: 'Install Salesforce CLI'
               run: |
