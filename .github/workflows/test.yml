@@ -10,7 +10,11 @@ on:
                 required: false
                 type: boolean
     pull_request:
-        types: [opened, edited, synchronize, reopened]
+         types: [opened, edited, synchronize, reopened]
+         branches:
+            - master
+         paths:
+            - 'force-app/**
 
 
 # Jobs to be executed
@@ -42,4 +46,22 @@ jobs:
                                 echo "$file was changed";
                         fi
                     done
+            # Install Salesforce CLI
+            - name: 'Install Salesforce CLI'
+              run: |
+                      npm install @salesforce/cli --location=global
+                      nodeInstallPath=$(npm config get prefix)
+                      echo "$nodeInstallPath/bin" >> $GITHUB_PATH
+                      sf --version
+    
+             # Store secret for dev hub
+            - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+              shell: bash
+              run: |
+                      echo ${{ secrets.DEVHUB_SFDX_URL }} > ./DEVHUB_SFDX_URL.txt
+                      secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
+                      if [ $secretFileSize == 1 ]; then
+                          echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
+                          exit 1;
+                      fi
                   
