@@ -37,10 +37,12 @@ jobs:
                         if [[ $file = *test || $file = *Test ]]
                             then 
                                 #var fileSet=["$file"];
-                                var fileSet=["basename${file}"];
+                                fileSet=["basename${file}"];
                                 echo "$file was changed";
                         fi
                     done
+                    echo "$fileSet"
+                    
                  for file in ${{ steps.changed-files.outputs.changed_files }}
                     do
                         
