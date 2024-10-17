@@ -61,7 +61,7 @@ jobs:
             - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
               shell: bash
               run: |
-                  echo ${{ $GITHUB_PATH}}
-                  echo ${{ $github.event.repository}}
+                  echo  "$GITHUB_PATH"
+                  echo "$github.event.repository"
                     
            
