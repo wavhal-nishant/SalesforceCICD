@@ -11,7 +11,7 @@ on:
 # Jobs to be executed
 jobs:
     # Dummy job used to skip CI run on automated PRs  my-job:
-      setupjob:
+      my-job:
         runs-on: ubuntu-latest
         environment: develop 
         steps: 
@@ -36,6 +36,7 @@ jobs:
                     done
                     echo "$fileSet"
                     echo "$fileSetApex"
+
                     
             - name : 'Install Salesforce CLI'
               run: |
