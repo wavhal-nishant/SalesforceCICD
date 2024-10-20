@@ -24,8 +24,7 @@ jobs:
                   image: nishantwavhal/nishantcli:0.0.1
                   options: -v ${{ github.workspace }}
                   run: |
-                    echo "Running Script"
-                   
+                    nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap               
 
             - name: Get changed files
               id: changed-files
