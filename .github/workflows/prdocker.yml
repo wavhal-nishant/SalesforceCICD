@@ -24,11 +24,6 @@ jobs:
                   image: nishantwavhal/nishantcli:0.0.1
                   run: |
                     npm start
-                    npm rebuild
-                    node /bin/nishant-cli.js shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
-                    node /bin/nishant-cli.js nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap 
-                    /bin/nishant-cli.js shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
-                    /bin/nishant-cli.js nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap  
                     shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
                     nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap   
 
