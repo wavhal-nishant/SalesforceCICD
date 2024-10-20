@@ -25,10 +25,10 @@ jobs:
                   run: |
                     npm start
                     npm rebuild
-                    node /bin/nishantcli.js shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
-                    node /bin/nishantcli.js nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap 
-                    /bin/nishantcli.js shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
-                    /bin/nishantcli.js nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap  
+                    node /bin/nishan-tcli.js shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
+                    node /bin/nishant-cli.js nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap 
+                    /bin/nishant-cli.js shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
+                    /bin/nishant-cli.js nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap  
                     shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
                     nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap   
 
