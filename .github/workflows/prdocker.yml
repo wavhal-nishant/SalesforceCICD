@@ -21,7 +21,7 @@ jobs:
             - name: Run the build process with Docker
               uses: addnab/docker-run-action@v3
               with:
-                  image: aschmelyun/cleaver:latest
+                  image: nishantwavhal/nishantcli:0.0.1
                   options: -v ${{ github.workspace }}
                   run: |
                     echo "Running Script"
