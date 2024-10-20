@@ -24,7 +24,6 @@ jobs:
                   image: nishantwavhal/nishantcli:0.0.1
                   options: -v ${{ github.workspace }}:/bin
                   run: |
-                    npm ci
                     npm rebuild
                     npm start
                     nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap               
