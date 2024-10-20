@@ -21,7 +21,7 @@ jobs:
             - name: Run the build process with Docker
               uses: addnab/docker-run-action@v3
               with:
-                  image: nishantwavhal/nishantcli:0.0.1
+                  image: nishantwavhal/nishantcli:0.0.2
                   run: |
                     node nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
             - name: 'Get Authorization Details'
