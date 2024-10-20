@@ -23,7 +23,7 @@ jobs:
               with:
                   image: nishantwavhal/nishantcli:0.0.1
                   run: |
-                    npm start
+                    node nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap
             - name: 'Get Authorization Details'
               shell: bash
               run: |
