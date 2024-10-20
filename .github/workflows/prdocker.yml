@@ -25,7 +25,7 @@ jobs:
                   options: -v ${{ github.workspace }}
                   run: |
                     npm start
-                    nishant-cli gen-sfdx --commandtype file --commandname getComponentFileMap               
+                    shant-cli gen-sfdx --commandtype file --commandname getComponentFileMap               
 
             - name: Get changed files
               id: changed-files
