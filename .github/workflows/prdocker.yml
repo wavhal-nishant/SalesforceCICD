@@ -24,6 +24,9 @@ jobs:
                   image: nishantwavhal/nishantcli:0.0.2
                   run: |
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getComponentFileMap
+                    node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getFilesNames
+
+                    
             - name: 'Get Authorization Details'
               shell: bash
               run: |
