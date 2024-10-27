@@ -22,61 +22,15 @@ jobs:
               uses: addnab/docker-run-action@v3
               with:
                   image: nishantwavhal/nishantcli:0.0.2
-                  run: |
+            -  name: Get FileMap
+               run: |
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getComponentFileMap
+            - name: Get File Names
+              run: |
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getFilesNames
 
                     
-            - name: 'Get Authorization Details'
-              shell: bash
-              run: |
-                  echo ${{ secrets.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt                 
-                  secretFileSize=$(wc -c "SalesforceCICD/DEVHUB_SFDX_URL.txt" | awk '{print $1}')
-                  if [ $secretFileSize == 1 ]; then
-                      echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
-                      exit 1;
-                  fi
-            - name: 'Authenticate Dev Hub'
-              run: sf org login sfdx-url -f ./DEVHUB_SFDX_URL.txt -a devhub -d
-
-            - name: Get changed files
-              id: changed-files
-              run: |
-                 echo "changed_files=$(git diff --name-only -r HEAD^1 HEAD | xargs)" >> $GITHUB_OUTPUT
-                 declare -a fileSet 
-                 declare -a fileSetApex 
-                 for file in $(git diff --name-only -r HEAD^1 HEAD | xargs)
-                    do  
-                        fileSetApex=[`basename ${file%.*}`];
-                        if [[ $file = *test || $file = *Test ]]
-                            then 
-                                fileSet=["basename${file}"];
-                        fi
-                    done
-                    echo "$fileSet"
-                    echo "$fileSetApex"
-
-                    
-            - name : 'Install Salesforce CLI'
-              run: |
-                  npm install @salesforce/cli --location=global
-                  nodeInstallPath=$(npm config get prefix)
-                  echo "$nodeInstallPath/bin" >> $GITHUB_PATH
-                  sf --version
+          
+               
                        
-            - name: 'Get Authorization Details'
-              shell: bash
-              run: |
-                  echo ${{ secrets.DEVHUB_SFDX_DEVELOP_SECRET }} > ./DEVHUB_SFDX_URL.txt                 
-                  secretFileSize=$(wc -c "SalesforceCICD/DEVHUB_SFDX_URL.txt" | awk '{print $1}')
-                  if [ $secretFileSize == 1 ]; then
-                      echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
-                      exit 1;
-                  fi
-
-            - name: 'Authenticate Dev Hub'
-              run: sf org login sfdx-url -f ./DEVHUB_SFDX_URL.txt -a devhub -d
-
-            - name: 'Run Apex tests'
-              run: sf apex test run -c -r human -d ./tests/apex -w 20 
-                    
+            
