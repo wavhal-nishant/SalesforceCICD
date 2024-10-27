@@ -22,12 +22,10 @@ jobs:
               uses: addnab/docker-run-action@v3
               with:
                   image: nishantwavhal/nishantcli:0.0.2
-            -  name: Get FileMap
-               run: |
+                  run: |
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getComponentFileMap
-            - name: Get File Names
-              run: |
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getFilesNames
+                    sf --version
 
                     
           
