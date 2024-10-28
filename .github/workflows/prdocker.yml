@@ -11,7 +11,7 @@ on:
 jobs:
     # Dummy job used to skip CI run on automated PRs  my-job:
       my-job:
-        runs-on: unbuntu-latest
+        runs-on: ubuntu-latest
         environment: develop 
         steps: 
             - name: Checkout
