@@ -21,7 +21,7 @@ jobs:
             - name: Run the build process with Docker
               uses: addnab/docker-run-action@v3
               with:
-                  image: nishantwavhal/nishantcli:0.0.2
+                  image: nishantwavhal/nishantcli:0.0.3
                   run: |
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getComponentFileMap
                     node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getFilesNames
