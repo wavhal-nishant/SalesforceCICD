@@ -15,8 +15,6 @@ jobs:
         container:
          image: nishantwavhal/nishantcli:0.0.3
         steps:
-            - name: Run the build process with Docker
-              run:  node bin/nishant-cli.js gen-sfdx --help 
             - name: Run Component File Map Command
               run:  node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getComponentFileMap
             - name:  Run Component SF command
