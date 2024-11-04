@@ -1,0 +1,23 @@
+# Unique name for this workflow
+name: Pull Request Workflow Main Docker
+
+# Definition when the workflow should run
+on:
+    workflow_dispatch:
+    pull_request:
+         types: [opened, edited, synchronize, reopened]
+
+# Jobs to be executed
+jobs:
+    # Dummy job used to skip CI run on automated PRs  my-job:
+      my-job:
+        runs-on: ubuntu-latest
+        container:
+         image: nishantwavhal/nishantcli:0.0.3
+        steps:
+            - name: Run the build process with Docker
+              run:  node bin/nishant-cli.js gen-sfdx --help 
+            - name: Run Component File Map Command
+              run:  node bin/nishant-cli.js gen-sfdx --commandtype file --commandname getComponentFileMap
+            - name:  Run Component SF command
+              run: sf --version 
