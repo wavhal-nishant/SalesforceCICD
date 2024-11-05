@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Model --></label>
+    <name>Model__c</name>
+    <picklistValues>
+        <masterLabel>Beast-1000</masterLabel>
+        <translation><!-- Beast-1000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Beast-2000</masterLabel>
+        <translation><!-- Beast-2000 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fasto-001</masterLabel>
+        <translation><!-- Fasto-001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fasto-002</masterLabel>
+        <translation><!-- Fasto-002 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Fasto-003</masterLabel>
+        <translation><!-- Fasto-003 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gradle-001</masterLabel>
+        <translation><!-- Gradle-001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gradle-002</masterLabel>
+        <translation><!-- Gradle-002 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gradle-003</masterLabel>
+        <translation><!-- Gradle-003 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gradle-004</masterLabel>
+        <translation><!-- Gradle-004 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kiaro100</masterLabel>
+        <translation><!-- Kiaro100 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kiaro200</masterLabel>
+        <translation><!-- Kiaro200 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kiaro200A</masterLabel>
+        <translation><!-- Kiaro200A --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kross1</masterLabel>
+        <translation><!-- Kross1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kross2</masterLabel>
+        <translation><!-- Kross2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kross3A</masterLabel>
+        <translation><!-- Kross3A --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kross3B</masterLabel>
+        <translation><!-- Kross3B --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Moun-001</masterLabel>
+        <translation><!-- Moun-001 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Moun-002</masterLabel>
+        <translation><!-- Moun-002 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Moun-003</masterLabel>
+        <translation><!-- Moun-003 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neuron CF10</masterLabel>
+        <translation><!-- Neuron CF10 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neuron CF20</masterLabel>
+        <translation><!-- Neuron CF20 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neuron CF9</masterLabel>
+        <translation><!-- Neuron CF9 --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

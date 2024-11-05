@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Brand --></label>
+    <name>Brand__c</name>
+    <picklistValues>
+        <masterLabel>Canyon</masterLabel>
+        <translation><!-- Canyon --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cube</masterLabel>
+        <translation><!-- Cube --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Kuota</masterLabel>
+        <translation><!-- Kuota --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pinarello</masterLabel>
+        <translation><!-- Pinarello --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Scott</masterLabel>
+        <translation><!-- Scott --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Simplon</masterLabel>
+        <translation><!-- Simplon --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

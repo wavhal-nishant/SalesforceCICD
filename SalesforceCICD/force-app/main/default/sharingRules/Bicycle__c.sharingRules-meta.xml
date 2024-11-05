@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Sharing_Rule_for_Sales_Roles</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Sharing Rule for Sales Roles</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>SVPSalesMarketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CurrencyIsoCode</field>
+            <operation>contains</operation>
+            <value>EUR,USD,INR</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Bicycle_Sharing_for_Sales_Profile</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Bicycle Sharing for Sales Profile</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>SVPSalesMarketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>SVPSalesMarketing</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
