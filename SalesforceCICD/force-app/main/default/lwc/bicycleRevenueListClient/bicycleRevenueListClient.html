@@ -1,0 +1,47 @@
+<!--
+LWC HTML Component to display Data Table,with conditional rendering if no records.
+Pagination Actions
+-->
+
+<template>
+    <template lwc:if={isloaded}>
+        <template lwc:if={bicyclewrapper.length}>
+            <div>
+                <lightning-datatable key-field="attributeid" data={recordsToDisplay} sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting} hide-checkbox-column="true" columns={columns}></lightning-datatable>
+            </div>
+            <div class="slds-grid slds-grid_vertical-align-center slds-grid_align-spread" style="padding-top: 0.5em;">
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning-button disabled={disableFirst} icon-name="utility:jump_to_left" label="First" class="slds-var-m-around_medium" alternative-text="first page" onclick={firstPage}></lightning-button>
+
+                    <lightning-button disabled={disableFirst} icon-name="utility:chevronleft" label="Previous" alternative-text="Previous" onclick={previousPage}></lightning-button>
+                        &nbsp;
+                    <span class="slds-badge">Showing {pageNumber} &nbsp;of&nbsp; {totalPages} &nbsp;&nbsp;Page(s)</span>
+                        &nbsp;
+                    <lightning-button disabled={disableLast} icon-name="utility:chevronright" label="Next" alternative-text="Next" onclick={nextPage} class="slds-var-m-around_medium" icon-position="right"></lightning-button>
+
+                    <lightning-button disabled={disableLast} icon-name="utility:jump_to_right" label="Last" alternative-text="last page" onclick={lastPage} icon-position="right"></lightning-button>
+                </div>
+                <div class="slds-clearfix">
+                    <div class="slds-float_right">
+                    <span class="slds-badge"> Total Records: {totalRecords}</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <lightning-card>      
+                <div class="slds-m-top_medium slds-m-bottom_x-large">
+                    <div class="slds-p-around_medium lgc-bg">
+                        INFORMATION : {msg}
+                        <lightning-helptext content="No Records were found !"></lightning-helptext>
+                    </div>
+                </div>     
+            </lightning-card>
+        </template>
+    </template>
+    <template lwc:else>
+            <lightning-spinner
+            alternative-text="Loading..." variant="brand" size="small">
+        </lightning-spinner>
+    </template>
+</template>
